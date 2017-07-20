@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<definition name="public" template="/WEB-INF/layouts/default.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/include/header.jsp" />
+		<put-attribute name="breadcrumb" value="" />
+		<put-attribute name="js" value="" />
+	</definition>
+
+	<definition name="home" extends="public">
+		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+	</definition>
+
+	<definition name="users" extends="public">
+		<put-attribute name="body" value="/WEB-INF/views/users.jsp" />
+		<put-attribute name="breadcrumb"
+			value="/WEB-INF/views/include/breadcrumb.jsp" />
+	</definition>
+
+	<definition name="courses" extends="public">
+		<put-attribute name="body" value="/WEB-INF/views/courses.jsp" />
+		<put-attribute name="breadcrumb"
+			value="/WEB-INF/views/include/breadcrumb.jsp" />
+	</definition>
+
+	<definition name="auditDates" extends="public">
+		<put-attribute name="body" value="/WEB-INF/views/auditDates.jsp" />
+		<put-attribute name="breadcrumb"
+			value="/WEB-INF/views/include/breadcrumb.jsp" />
+	</definition>
+
+	<definition name="dataAccessFailure" extends="public">
+		<put-attribute name="body"
+			value="/WEB-INF/views/dataAccessFailure.jsp" />
+	</definition>
+
+	<definition name="dataAccessFailure" extends="public">
+		<put-attribute name="body"
+			value="/WEB-INF/views/resourceNotFound.jsp" />
+	</definition>
+
+	<definition name="dataAccessFailure" extends="public">
+		<put-attribute name="body"
+			value="/WEB-INF/views/uncaughtException.jsp" />
+	</definition>
+
+	<definition name="editUsers" extends="public">
+		<put-attribute name="body" value="/WEB-INF/views/edit-users.jsp" />
+		<put-attribute name="breadcrumb"
+			value="/WEB-INF/views/include/breadcrumb.jsp" />
+		<put-list-attribute name="js" inherit="true">
+			<add-attribute value="/static/js/pages/editUsers.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="listCourseEdit" extends="public">
+		<put-attribute name="body" value="/WEB-INF/views/listCourseEdit.jsp" />
+		<put-attribute name="breadcrumb"
+			value="/WEB-INF/views/include/breadcrumb.jsp" />
+	</definition>
+
+	<definition name="editCourse" extends="public">
+		<put-attribute name="body" value="/WEB-INF/views/edit-course.jsp" />
+		<put-attribute name="breadcrumb"
+			value="/WEB-INF/views/include/breadcrumb.jsp" />
+		<put-list-attribute name="js" inherit="true">
+			<add-attribute value="/static/js/pages/editCourse.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="listLocationEdit" extends="public">
+		<put-attribute name="body"
+			value="/WEB-INF/views/listLocationEdit.jsp" />
+		<put-attribute name="breadcrumb"
+			value="/WEB-INF/views/include/breadcrumb.jsp" />
+	</definition>
+
+	<definition name="editLocation" extends="public">
+		<put-attribute name="body" value="/WEB-INF/views/edit-location.jsp" />
+		<put-attribute name="breadcrumb"
+			value="/WEB-INF/views/include/breadcrumb.jsp" />
+		<put-list-attribute name="js" inherit="true">
+			<add-attribute value="/static/js/pages/editLocation.js" />
+		</put-list-attribute>
+	</definition>
+</tiles-definitions>
