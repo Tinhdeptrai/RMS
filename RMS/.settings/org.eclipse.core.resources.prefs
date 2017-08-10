@@ -1,7 +1,6 @@
 eclipse.preferences.version=1
-encoding//src/main/webapp/WEB-INF/views/home.jsp=UTF-8
+encoding//src/main/java/com/ptit/rms/controller/api/HangHoaAPI.java=UTF-8
+encoding//src/main/java/com/ptit/rms/controller/api/KhachHangAPI.java=UTF-8
+encoding//src/main/java/com/ptit/rms/controller/api/NhanVienAPI.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/include/head.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/include/header.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/login.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/users.jsp=UTF-8
 encoding/<project>=UTF-8

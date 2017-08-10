@@ -24,7 +24,7 @@ public class SwaggerConfig {
   @Bean
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2).select()
-        .apis(RequestHandlerSelectors.basePackage("com.tps.audit.controller.api")).paths(PathSelectors.ant("/api/*"))
+        .apis(RequestHandlerSelectors.basePackage("com.ptit.rms.controller.api")).paths(PathSelectors.ant("/api/**"))
         .build().apiInfo(apiInfo()).useDefaultResponseMessages(false)
         .globalResponseMessage(RequestMethod.GET, newArrayList(
             new ResponseMessageBuilder().code(500).message("Internal Server Error").responseModel(new ModelRef("Error"))
@@ -42,8 +42,8 @@ public class SwaggerConfig {
 
   @SuppressWarnings("deprecation")
   private ApiInfo apiInfo() {
-    ApiInfo apiInfo = new ApiInfo("AUDIT REST API", "description of API.", "API TOS", "service",
-        "http://www.tpssoft.com/", "License TPS", "http://www.tpssoft.com/");
+    ApiInfo apiInfo = new ApiInfo("RMS REST API", "RMS API.", "API TOS", "service",
+        "Nguyen Tinh", "License Nguyen Tinh", "nguyentinh0410@gmail.com");
     return apiInfo;
   }
 }

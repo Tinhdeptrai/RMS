@@ -65,7 +65,7 @@ public class VerifyToken {
     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     Date date = new Date();
     System.out.println(dateFormat.format(date));
-    TokenInfor infor = new TokenInfor("tinh", "1", "2", "3", "4");
+    TokenInfor infor = new TokenInfor("tinh", "1", "2", "3");
     createToken(infor);
     // / verify();
 

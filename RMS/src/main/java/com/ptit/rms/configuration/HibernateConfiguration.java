@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({ "com.tps.audit.configuration" })
+@ComponentScan({ "com.ptit.rms.configuration" })
 @PropertySource(value = { "classpath:application.properties" })
 public class HibernateConfiguration {
 
@@ -28,7 +28,7 @@ public class HibernateConfiguration {
   public LocalSessionFactoryBean sessionFactory() {
     LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
     sessionFactory.setDataSource(dataSource());
-    sessionFactory.setPackagesToScan(new String[] { "com.tps.audit.model" });
+    sessionFactory.setPackagesToScan(new String[] { "com.ptit.rms.model" });
     sessionFactory.setHibernateProperties(hibernateProperties());
     return sessionFactory;
   }

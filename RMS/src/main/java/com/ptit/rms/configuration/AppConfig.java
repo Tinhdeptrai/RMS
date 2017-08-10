@@ -5,39 +5,21 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
-import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.tps.audit")
+@ComponentScan(basePackages = "com.ptit.rms")
 public class AppConfig extends WebMvcConfigurerAdapter {
 
-  /**
-   * Configure ViewResolvers to deliver preferred views.
-   */
   @Override
-  public void configureViewResolvers(ViewResolverRegistry registry) {
-    TilesViewResolver viewResolver = new TilesViewResolver();
-    registry.viewResolver(viewResolver);
-  }
-
-  /**
-   * Configure TilesConfigurer.
-   */
-  @Bean
-  public TilesConfigurer tilesConfigurer() {
-    TilesConfigurer tilesConfigurer = new TilesConfigurer();
-    tilesConfigurer.setDefinitions(new String[] { "/WEB-INF/layouts/layout_without_authencatied.xml",
-        "/WEB-INF/layouts/layout_with_authencatied.xml" });
-    tilesConfigurer.setCheckRefresh(true);
-    return tilesConfigurer;
+  public void addCorsMappings(CorsRegistry registry) {
+    registry.addMapping("/**").allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH");
   }
 
   /**
@@ -46,7 +28,6 @@ public class AppConfig extends WebMvcConfigurerAdapter {
    */
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {
-    registry.addResourceHandler("/static/**").addResourceLocations("/static/");
     registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
     registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
   }
