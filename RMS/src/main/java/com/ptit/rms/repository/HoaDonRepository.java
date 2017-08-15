@@ -10,4 +10,6 @@ public interface HoaDonRepository {
 
   void save(HoaDon hoaDon);
 
+  void update(HoaDon hoaDon);
+
 }

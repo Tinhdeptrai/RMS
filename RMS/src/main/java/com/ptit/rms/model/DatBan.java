@@ -161,7 +161,7 @@ public class DatBan {
   }
 
   @JsonIgnore
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "datBan")
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "datBan")
   public Set<HoaDon> getHoaDons() {
     return this.hoaDons;
   }

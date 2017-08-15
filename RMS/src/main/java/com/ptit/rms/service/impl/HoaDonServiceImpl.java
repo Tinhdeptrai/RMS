@@ -29,4 +29,9 @@ public class HoaDonServiceImpl implements HoaDonService {
     
   }
 
+  @Override
+  public void update(HoaDon hoaDon) {
+    this.hoaDon.update(hoaDon);
+  }
+
 }

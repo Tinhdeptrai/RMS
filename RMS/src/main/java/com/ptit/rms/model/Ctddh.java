@@ -43,7 +43,7 @@ public class Ctddh {
     this.id = id;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "IDDonDatHang", nullable = false, insertable = false, updatable = false)
   public DonDatHang getDonDatHang() {
     return this.donDatHang;
@@ -53,7 +53,7 @@ public class Ctddh {
     this.donDatHang = donDatHang;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "IDHangHoa", nullable = false, insertable = false, updatable = false)
   public HangHoa getHangHoa() {
     return this.hangHoa;

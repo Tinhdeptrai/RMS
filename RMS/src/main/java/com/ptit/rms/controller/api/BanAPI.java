@@ -29,7 +29,7 @@ public class BanAPI {
 
   @SuppressWarnings({ "rawtypes" })
   @RequestMapping(value = "/ban/list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-  public ResponseEntity<ResponseList> getDatBan(@RequestHeader HttpHeaders headers) {
+  public ResponseEntity<ResponseList> getBan(@RequestHeader HttpHeaders headers) {
     TokenInfor infor = VerifyToken.verify(headers);
     if (infor == null) {
       return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);

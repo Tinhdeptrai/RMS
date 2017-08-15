@@ -59,6 +59,7 @@ public class DatBanAPI {
       ban.setTrangThai(1);
       datBan.setNgayGioDat(new Date());
       datBan.setBan(ban);
+      datBan.setFlagdelete(false);
       this.banService.update(ban);
       this.datBanService.saveDatBan(datBan);
       Messages messages = new Messages(200, "Cập Nhật Thành Công", true);

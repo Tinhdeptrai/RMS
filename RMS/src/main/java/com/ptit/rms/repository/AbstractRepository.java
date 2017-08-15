@@ -45,5 +45,8 @@ public abstract class AbstractRepository<PK extends Serializable, T> {
   protected Criteria createEntityCriteria() {
     return getSession().createCriteria(persistentClass);
   }
-
+  
+  public void flush() {
+    getSession().flush();
+  }
 }

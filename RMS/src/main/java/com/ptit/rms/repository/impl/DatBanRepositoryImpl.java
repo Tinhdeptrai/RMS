@@ -16,7 +16,7 @@ public class DatBanRepositoryImpl extends AbstractRepository<Integer, DatBan> im
   @SuppressWarnings("unchecked")
   @Override
   public List<DatBan> getDatBan() {
-    Criteria criteria = createEntityCriteria().addOrder(Order.asc("iddatBan"));
+    Criteria criteria = createEntityCriteria().addOrder(Order.desc("iddatBan"));
     criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
     List<DatBan> list = (List<DatBan>) criteria.list();
     return list;

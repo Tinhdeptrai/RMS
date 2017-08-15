@@ -26,4 +26,6 @@ public interface HangHoaService {
 
   void createHangHoa(HangHoa hangHoa);
 
+  void updateSoLuongHangHoa(List<HangHoa> hangHoa);
+
 }

@@ -72,11 +72,36 @@ public class HoaDonAPI {
       hoaDon.setDatBan(datBan);
       hoaDon.setNgayLapHd(new Date());
       hoaDon.setFlagDelete(false);
-      hoaDon.setTrangThai(0);
       this.hoaDonService.save(hoaDon);
     }
     Messages messages = new Messages(200, "Cập Nhật Thành Công", true);
     ResponseObject<Messages> responseObject = new ResponseObject<Messages>(messages);
     return new ResponseEntity<ResponseObject>(responseObject, HttpStatus.OK);
   }
+  
+  @SuppressWarnings({ "rawtypes" })
+  @RequestMapping(value = "/hoadon/update", method = RequestMethod.PUT)
+  public ResponseEntity<ResponseObject> updateHoaDon(@RequestHeader HttpHeaders headers, @RequestBody HoaDon hoaDon)
+      throws ParseException {
+    TokenInfor infor = VerifyToken.verify(headers);
+    if (infor == null) {
+      return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    } else {
+      DatBan datBan = hoaDon.getDatBan();
+      datBan.setTrangThai(1);
+      Ban ban = datBan.getBan();
+      ban.setTrangThai(0);
+      this.banService.update(ban);
+      datBan.setBan(ban);
+      this.datBanService.update(datBan);
+      hoaDon.setDatBan(datBan);
+      hoaDon.setNgayLapHd(new Date());
+      hoaDon.setFlagDelete(false);
+      this.hoaDonService.update(hoaDon);
+    }
+    Messages messages = new Messages(200, "Cập Nhật Thành Công", true);
+    ResponseObject<Messages> responseObject = new ResponseObject<Messages>(messages);
+    return new ResponseEntity<ResponseObject>(responseObject, HttpStatus.OK);
+  }
 }
+

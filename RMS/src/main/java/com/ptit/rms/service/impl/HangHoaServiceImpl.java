@@ -63,19 +63,28 @@ public class HangHoaServiceImpl implements HangHoaService {
   @Override
   public void updateDVT(DonViTinh obj) {
     this.donViTinhRepository.updateDVT(obj);
-
   }
 
   @Override
   public void createDVT(DonViTinh obj) {
     this.donViTinhRepository.createDVT(obj);
-    
+
   }
 
   @Override
   public void createHangHoa(HangHoa hangHoa) {
     this.hangHoaRepository.createHangHoa(hangHoa);
-    
+
+  }
+
+  @Override
+  public void updateSoLuongHangHoa(List<HangHoa> hangHoa) {
+    for (HangHoa hangHoa2 : hangHoa) {
+      HangHoa hangHoaObj = this.hangHoaRepository.getHangHoaById(hangHoa2.getIdhangHoa());
+      hangHoaObj.setSlhienCo(hangHoaObj.getSlhienCo() - hangHoa2.getSlhienCo());
+      this.hangHoaRepository.updateKhachHang(hangHoaObj);
+    }
+
   }
 
 }

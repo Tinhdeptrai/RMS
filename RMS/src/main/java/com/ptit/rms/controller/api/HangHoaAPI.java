@@ -1,4 +1,4 @@
-package com.ptit.rms.controller.api;
+  package com.ptit.rms.controller.api;
 
 import java.util.List;
 
@@ -123,4 +123,19 @@ public class HangHoaAPI {
     }
   }
 
+  @SuppressWarnings({ "rawtypes" })
+  @RequestMapping(value = "/hanghoa/editsoluong", method = RequestMethod.PUT, produces = "application/json;charset=UTF-8")
+  public ResponseEntity<ResponseObject> updateSoLuong(@RequestHeader HttpHeaders headers,
+      @RequestBody List<HangHoa> hangHoa) {
+    TokenInfor infor = VerifyToken.verify(headers);
+    if (infor == null) {
+      return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    } else {
+    this.hangHoaService.updateSoLuongHangHoa(hangHoa);
+      Messages messages = new Messages(200, "Cập Nhật Thành Công", true);
+      ResponseObject<Messages> responseObject = new ResponseObject<Messages>(messages);
+      return new ResponseEntity<ResponseObject>(responseObject, HttpStatus.OK);
+    }
+  }
+  
 }

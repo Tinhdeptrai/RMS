@@ -40,4 +40,9 @@ public class HangHoaRepositoryImpl extends AbstractRepository<Integer, HangHoa> 
 
   }
 
+  @Override
+  public HangHoa getHangHoaById(int idhangHoa) {
+    return getByKey(idhangHoa);
+  }
+
 }

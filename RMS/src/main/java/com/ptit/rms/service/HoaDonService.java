@@ -10,4 +10,6 @@ public interface HoaDonService {
 
   void save(HoaDon hoaDon);
 
+  void update(HoaDon hoaDon);
+
 }

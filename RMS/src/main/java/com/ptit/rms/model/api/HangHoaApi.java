@@ -3,9 +3,9 @@ package com.ptit.rms.model.api;
 public class HangHoaApi {
   private int idhangHoa;
   private String donViTinh;
-  private String tenHangHoa;
+  private String tenHang;
   private int donGia;
-  private int slHienCo;
+  private int slhienCo;
   private String ghiChu;
 
   public HangHoaApi() {
@@ -16,9 +16,9 @@ public class HangHoaApi {
     super();
     this.idhangHoa = idhangHoa;
     this.donViTinh = donViTinh;
-    this.tenHangHoa = tenHang;
+    this.tenHang = tenHang;
     this.donGia = donGia;
-    this.slHienCo = slhienCo;
+    this.slhienCo = slhienCo;
     this.ghiChu = ghiChu;
   }
 
@@ -54,20 +54,20 @@ public class HangHoaApi {
     this.ghiChu = ghiChu;
   }
 
-  public String getTenHangHoa() {
-    return tenHangHoa;
+  public String getTenHang() {
+    return tenHang;
   }
 
-  public void setTenHangHoa(String tenHangHoa) {
-    this.tenHangHoa = tenHangHoa;
+  public void setTenHang(String tenHangHoa) {
+    this.tenHang = tenHangHoa;
   }
 
-  public int getSlHienCo() {
-    return slHienCo;
+  public int getSlhienCo() {
+    return slhienCo;
   }
 
-  public void setSlHienCo(int slHienCo) {
-    this.slHienCo = slHienCo;
+  public void setSlhienCo(int slHienCo) {
+    this.slhienCo = slHienCo;
   }
 
 }

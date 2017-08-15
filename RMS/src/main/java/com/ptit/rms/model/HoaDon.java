@@ -121,5 +121,4 @@ public class HoaDon{
 	public void setFlagDelete(boolean flagDelete) {
 		this.flagDelete = flagDelete;
 	}
-
 }

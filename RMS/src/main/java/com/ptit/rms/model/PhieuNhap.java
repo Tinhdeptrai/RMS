@@ -4,9 +4,12 @@ package com.ptit.rms.model;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,6 +17,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "PhieuNhap")
@@ -48,7 +53,7 @@ public class PhieuNhap {
   }
 
   @Id
-
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "IDPhieuNhap", unique = true, nullable = false)
   public int getIdphieuNhap() {
     return this.idphieuNhap;
@@ -58,7 +63,7 @@ public class PhieuNhap {
     this.idphieuNhap = idphieuNhap;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "IDDonDatHang", nullable = false)
   public DonDatHang getDonDatHang() {
     return this.donDatHang;
@@ -68,7 +73,7 @@ public class PhieuNhap {
     this.donDatHang = donDatHang;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "IDNhanVien", nullable = false)
   public NhanVien getNhanVien() {
     return this.nhanVien;
@@ -97,7 +102,8 @@ public class PhieuNhap {
     this.flagDelete = flagDelete;
   }
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "phieuNhap")
+  @JsonIgnore
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "phieuNhap")
   public Set<CtphieuNhap> getCtphieuNhaps() {
     return this.ctphieuNhaps;
   }

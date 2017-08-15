@@ -7,6 +7,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "DonDatHang")
@@ -54,7 +58,7 @@ public class DonDatHang {
   }
 
   @Id
-
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "IDDonDatHang", unique = true, nullable = false)
   public int getIddonDatHang() {
     return this.iddonDatHang;
@@ -64,7 +68,7 @@ public class DonDatHang {
     this.iddonDatHang = iddonDatHang;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "IDNhaCungCap", nullable = false)
   public NhaCungCap getNhaCungCap() {
     return this.nhaCungCap;
@@ -74,7 +78,7 @@ public class DonDatHang {
     this.nhaCungCap = nhaCungCap;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "IDNhanVien", nullable = false)
   public NhanVien getNhanVien() {
     return this.nhanVien;
@@ -112,7 +116,8 @@ public class DonDatHang {
     this.flagdelete = flagdelete;
   }
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "donDatHang")
+  @JsonIgnore
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "donDatHang")
   public Set<PhieuNhap> getPhieuNhaps() {
     return this.phieuNhaps;
   }
@@ -121,7 +126,8 @@ public class DonDatHang {
     this.phieuNhaps = phieuNhaps;
   }
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "donDatHang")
+  @JsonIgnore
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "donDatHang")
   public Set<Ctddh> getCtddhs() {
     return this.ctddhs;
   }

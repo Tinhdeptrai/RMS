@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "NhaCungCap")
 public class NhaCungCap {
@@ -132,7 +134,8 @@ public class NhaCungCap {
     this.flagDelete = flagDelete;
   }
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "nhaCungCap")
+  @JsonIgnore
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "nhaCungCap")
   public Set<DonDatHang> getDonDatHangs() {
     return this.donDatHangs;
   }

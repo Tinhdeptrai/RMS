@@ -17,7 +17,7 @@ public class HoaDonRepositoryImpl extends AbstractRepository<Integer, HoaDon> im
   @SuppressWarnings("unchecked")
   @Override
   public List<HoaDon> getHoaDon() {
-    Criteria criteria = createEntityCriteria().addOrder(Order.desc("idhoaDon"));
+    Criteria criteria = createEntityCriteria().addOrder(Order.desc("trangThai")).addOrder(Order.desc("ngayLapHd"));
     criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
     criteria.add(Restrictions.eq("flagDelete", false));
     List<HoaDon> list = (List<HoaDon>) criteria.list();

@@ -3,6 +3,7 @@ package com.ptit.rms.model;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,8 +16,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "HangHoa")
 public class HangHoa {
 
@@ -97,7 +101,8 @@ public class HangHoa {
   public void setDonGia(int donGia) {
     this.donGia = donGia;
   }
-
+  
+  @JsonIgnoreProperties(ignoreUnknown = true)
   @Column(name = "SLHienCo", nullable = false)
   public int getSlhienCo() {
     return this.slhienCo;

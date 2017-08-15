@@ -43,7 +43,7 @@ public class CtphieuNhap {
     this.id = id;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "IDHangHoa", nullable = false, insertable = false, updatable = false)
   public HangHoa getHangHoa() {
     return this.hangHoa;
@@ -53,7 +53,7 @@ public class CtphieuNhap {
     this.hangHoa = hangHoa;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "IDPhieuNhap", nullable = false, insertable = false, updatable = false)
   public PhieuNhap getPhieuNhap() {
     return this.phieuNhap;

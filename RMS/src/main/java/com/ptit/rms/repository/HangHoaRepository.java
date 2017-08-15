@@ -14,4 +14,6 @@ public interface HangHoaRepository {
 
   void createHangHoa(HangHoa hangHoa);
 
+  HangHoa getHangHoaById(int idhangHoa);
+
 }
