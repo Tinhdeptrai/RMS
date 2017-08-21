@@ -24,4 +24,11 @@ public class MonAnRepositoryImpl extends AbstractRepository<Integer, MonAn> impl
     return list;
   }
 
+  @Override
+  public int saveMonAn(MonAn ma) {
+    persist(ma);
+    flush();
+    return ma.getIdmonAn();
+  }
+
 }

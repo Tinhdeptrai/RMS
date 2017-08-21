@@ -9,4 +9,6 @@ public interface BanGiaRepository {
 
   List<BangGia> getGiaByMonAnId(MonAn monAn);
 
+  void save(BangGia bangGia);
+
 }

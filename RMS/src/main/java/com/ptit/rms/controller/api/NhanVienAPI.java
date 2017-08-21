@@ -100,8 +100,9 @@ public class NhanVienAPI {
         String sdt = object.getString("sdt");
         String quyen = object.getString("quyen");
         String taiKhoan = object.getString("taikhoan");
-        int id = object.getInt("id");
+      
         if (type.equals("edit")) {
+          int id = object.getInt("id");
           NhanVien nhanVien = this.nhanVienService.findById(id);
           nhanVien.setTaiKhoan(taiKhoan);
           if (!matkhau.equals("********"))

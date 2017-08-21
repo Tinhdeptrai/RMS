@@ -8,4 +8,8 @@ public interface MonAnRepository {
 
   List<MonAn> getMonAn();
 
+  int saveMonAn(MonAn ma);
+
+  void update(MonAn ma);
+
 }

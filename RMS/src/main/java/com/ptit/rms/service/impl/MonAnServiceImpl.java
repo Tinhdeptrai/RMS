@@ -1,6 +1,7 @@
 package com.ptit.rms.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -38,19 +39,35 @@ public class MonAnServiceImpl implements MonAnService {
   public List<MonAnApi> converMonAn(List<MonAn> lstMonAn) {
     List<MonAnApi> monAnAPIs = new ArrayList<>();
     for (MonAn monAn : lstMonAn) {
-      MonAnApi api = new MonAnApi(monAn.getIdmonAn(), monAn.getDanhMuc(),
-          monAn.getDonViTinh(), monAn.getTenMon(), monAn.getAnh(), monAn.getGhiChu(),
-          monAn.isFlagDelete());
+      MonAnApi api = new MonAnApi(monAn.getIdmonAn(), monAn.getDanhMuc(), monAn.getDonViTinh(), monAn.getTenMon(),
+          monAn.getAnh(), monAn.getGhiChu(), monAn.isFlagDelete());
       List<BangGia> bangGias = this.banGia.getGiaByMonAnId(monAn);
       if (bangGias != null)
         api.setBangGia(bangGias);
       List<DinhLuong> dinhLuongs = this.dinhLuong.getDinhLuongByMonAnId(monAn);
-      if (dinhLuongs != null)
+      if (dinhLuongs != null && dinhLuongs.size() != 0)
         api.setDinhLuong(dinhLuongs);
       monAnAPIs.add(api);
     }
 
     return monAnAPIs;
+  }
+
+  @Override
+  public int saveMonAn(MonAn ma) {
+    return this.monAn.saveMonAn(ma);
+
+  }
+
+  @Override
+  public void saveBangGia(BangGia bangGias) {
+    bangGias.setNgayApDung(new Date());
+    this.banGia.save(bangGias);
+  }
+
+  @Override
+  public void updateMonAn(MonAn ma) {
+    this.monAn.update(ma);
   }
 
 }

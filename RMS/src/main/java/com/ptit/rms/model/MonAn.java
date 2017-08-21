@@ -7,6 +7,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -55,7 +57,7 @@ public class MonAn {
   }
 
   @Id
-
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "IDMonAn", unique = true, nullable = false)
   public int getIdmonAn() {
     return this.idmonAn;
@@ -122,7 +124,7 @@ public class MonAn {
   }
 
   @JsonIgnore
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "monAn")
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "monAn")
   public Set<DinhLuong> getDinhLuongs() {
     return this.dinhLuongs;
   }

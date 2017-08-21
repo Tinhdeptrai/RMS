@@ -9,4 +9,6 @@ public interface DinhLuongRepository {
 
   List<DinhLuong> getDinhLuongByMonAnId(MonAn monAn);
 
+  void save(DinhLuong dinhLuong);
+
 }

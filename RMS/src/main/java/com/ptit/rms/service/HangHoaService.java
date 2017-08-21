@@ -2,6 +2,7 @@ package com.ptit.rms.service;
 
 import java.util.List;
 
+import com.ptit.rms.model.DinhLuong;
 import com.ptit.rms.model.DonViTinh;
 import com.ptit.rms.model.HangHoa;
 import com.ptit.rms.model.api.HangHoaApi;
@@ -27,5 +28,8 @@ public interface HangHoaService {
   void createHangHoa(HangHoa hangHoa);
 
   void updateSoLuongHangHoa(List<HangHoa> hangHoa);
+
+  void saveDinhLuong(List<DinhLuong> dinhLuongs);
+
 
 }

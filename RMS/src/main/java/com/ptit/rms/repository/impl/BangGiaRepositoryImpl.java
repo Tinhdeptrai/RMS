@@ -25,4 +25,9 @@ public class BangGiaRepositoryImpl extends AbstractRepository<Integer, BangGia> 
     return list;
   }
 
+  @Override
+  public void save(BangGia bangGia) {
+    persist(bangGia);
+  }
+
 }

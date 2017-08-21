@@ -56,7 +56,7 @@ public class DinhLuong {
     this.hangHoa = hangHoa;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "IDMonAn", nullable = false, insertable = false, updatable = false)
   public MonAn getMonAn() {
     return this.monAn;

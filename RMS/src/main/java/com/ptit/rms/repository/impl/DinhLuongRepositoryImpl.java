@@ -25,4 +25,9 @@ public class DinhLuongRepositoryImpl extends AbstractRepository<Integer, DinhLuo
     return list;
   }
 
+  @Override
+  public void save(DinhLuong dinhLuong) {
+    persist(dinhLuong);
+  }
+
 }

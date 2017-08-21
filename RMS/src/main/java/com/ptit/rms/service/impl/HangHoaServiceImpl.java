@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ptit.rms.model.DinhLuong;
+import com.ptit.rms.model.DinhLuongId;
 import com.ptit.rms.model.DonViTinh;
 import com.ptit.rms.model.HangHoa;
 import com.ptit.rms.model.api.HangHoaApi;
+import com.ptit.rms.repository.DinhLuongRepository;
 import com.ptit.rms.repository.DonViTinhRepository;
 import com.ptit.rms.repository.HangHoaRepository;
 import com.ptit.rms.service.HangHoaService;
@@ -23,6 +26,9 @@ public class HangHoaServiceImpl implements HangHoaService {
 
   @Autowired
   private DonViTinhRepository donViTinhRepository;
+
+  @Autowired
+  private DinhLuongRepository dinhLuongRepository;
 
   @Override
   public List<HangHoa> getHangHoa() {
@@ -83,6 +89,17 @@ public class HangHoaServiceImpl implements HangHoaService {
       HangHoa hangHoaObj = this.hangHoaRepository.getHangHoaById(hangHoa2.getIdhangHoa());
       hangHoaObj.setSlhienCo(hangHoaObj.getSlhienCo() - hangHoa2.getSlhienCo());
       this.hangHoaRepository.updateKhachHang(hangHoaObj);
+    }
+
+  }
+
+  @Override
+  public void saveDinhLuong(List<DinhLuong> dinhLuongs) {
+    for (DinhLuong dinhLuong : dinhLuongs) {
+      DinhLuongId dinhLuongId = new DinhLuongId(dinhLuong.getMonAn().getIdmonAn(),
+          dinhLuong.getHangHoa().getIdhangHoa());
+      dinhLuong.setId(dinhLuongId);
+      this.dinhLuongRepository.save(dinhLuong);
     }
 
   }
